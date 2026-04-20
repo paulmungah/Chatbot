@@ -34,7 +34,7 @@ while True:
                 found_answer = True
                 break 
 
-        if found_answer:
+            if found_answer:
                 break
             # Stop looking at otherr ansers  since we already found 
             #  match
@@ -42,6 +42,6 @@ while True:
             # 4. if we went through the entire CSV file and never found  a match of the keywords,
             # we need to display a message to tteh user
 
-    if not found_answer :
-        print("Musicbot : Sorry , i dont know that one.Try asking for somethinf else") 
-     
+            if not found_answer :
+             print("Musicbot : Sorry , i dont know that one.Try asking for somethinf else") 
+      
