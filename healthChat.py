@@ -1,9 +1,9 @@
 import pandas as pd 
 
 # load your data into a dataframe
-df = pd.read_csv("health_data.csv")
+df = pd.read_csv("music_base.csv")
 # print(df)
-print("Healthbot: Hello there, I am your Health assistance bot . Ask me about any symptoms.")
+print("Musicbot: Hello there, I am your Music assistance bot . Ask me about any symptoms.")
 
 
 while True:
@@ -12,7 +12,7 @@ while True:
 
     # 2. Check if the users want to exit
     if user_text == "quit":
-        print("Healthbot:Goodbye! Nice to have been of service to you")
+        print("Musicbot:Goodbye! Nice to have been of service to you")
         break
 
     # Create a variable eith will store the details structured in the csv file
@@ -30,11 +30,11 @@ while True:
 
             # if keyword is inside of the users sentence
             if clean_word in user_text:
-                print("Healthboot:",row["Response"])
+                print("Musicbot:",row["Response"])
                 found_answer = True
                 break 
 
-            if found_answer:
+        if found_answer:
                 break
             # Stop looking at otherr ansers  since we already found 
             #  match
@@ -42,6 +42,6 @@ while True:
             # 4. if we went through the entire CSV file and never found  a match of the keywords,
             # we need to display a message to tteh user
 
-            if not found_answer :
-                print("Healthbot : Sorry , i dont know that one.Try asking for somethinf else") 
+    if not found_answer :
+        print("Musicbot : Sorry , i dont know that one.Try asking for somethinf else") 
      
