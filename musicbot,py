@@ -1,0 +1,38 @@
+import pandas as pd
+
+df = pd.read_csv("music_base.csv")
+
+print("Musicbot: Hello there, I am your Music assistance bot. Ask me something!")
+
+while True:
+    user_text = input("\nYou: ").strip().lower()
+
+    # 🔴 ignore empty input
+    if user_text == "":
+        print("Musicbot: Please type something.")
+        continue
+
+    if user_text == "quit":
+        print("Musicbot: Goodbye! Nice to have been of service to you")
+        break
+
+    found_answer = False
+    user_words = set(user_text.split())
+
+    for index, row in df.iterrows():
+        keywords_list = str(row['Keywords']).lower().split(',')
+
+        for keyword in keywords_list:
+            keyword = keyword.strip()
+
+            # ✅ better matching (word-based)
+            if keyword in user_words:
+                print("Musicbot:", row["Response"])
+                found_answer = True
+                break
+
+        if found_answer:
+            break
+
+    if not found_answer:
+        print("Musicbot: Sorry, I don't know that one. Try asking something else.")
